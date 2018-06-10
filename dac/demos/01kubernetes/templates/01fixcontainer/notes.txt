@@ -1,0 +1,3 @@
+docker image build -t shubhamharnal/jenkins:demo .
+
+docker image push shubhamharnal/jenkins:demo

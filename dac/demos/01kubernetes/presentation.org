@@ -48,10 +48,14 @@ CF/automation for the EFS
 Splitting of tools and app into namespaces
 
 x-x-x-x-x-x-x-x
+
 1. Launch cluster: while cluster launches show local docker run of jenkins and describe the shortcomings: doesn't restart and also when I do restart it, has lost any changes
 - launch root.env + setupaws.sh and walk through resources provisioned ( users, groups, keys and permissions )
-- launch kops.env + setupkos.sh this will take five minutes so talk about docker real quick, talk about cluster v/s bunch of servers real quick. Also take this time to launch a single jenkins container/pod
+- launch kops.env + setupkos.sh this will take five minutes so talk about docker real quick, talk about cluster v/s bunch of servers real quick. Also take this time to 
 
+launch replicaset, kill pod, show restart, scale to 3, kill, show restart
+
+1.5 launch single jenkins container locally: kill, doesn't come up
 
 2. launch jenkins rs + loadbalancer service
 at this point, show that killing a pod restarts , then setup container and again kill, to show that well, container does launch but changes are lost!
@@ -64,4 +68,5 @@ x-x-x-x-x-x
 slide: let's solve 1st problem: we want container to be resilient (should restart)
 
 problem 2: need container without having to run setup wizard
+
 problem 3: persist our data changes: use EBS volume
