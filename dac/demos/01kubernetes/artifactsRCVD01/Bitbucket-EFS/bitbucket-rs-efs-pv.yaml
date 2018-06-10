@@ -1,0 +1,28 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: bitbucket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubia
+  template:
+    metadata:
+      labels:
+        app: kubia
+    spec:
+      containers:
+      - name: bitbucket
+        image: cicdpipeline/<image_name>:<tag>
+        volumeMounts:
+        - name: bitbucket-data
+          mountPath: /var/atlassian/application-data/bitbucket/shared/data/
+        ports:
+        - containerPort: 7990
+          protocol: TCP
+      volumes:
+      - name: bitbucket-data
+        nfs:
+         server: <EFS_IPAddress>
+         path: "/"

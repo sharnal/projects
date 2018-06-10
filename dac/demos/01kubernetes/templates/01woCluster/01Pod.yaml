@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins
+spec:
+  containers:
+  - image: jenkinsci/jenkins:lts-alpine
+    name: jenkins
+    ports:
+    - containerPort: 8080
+      protocol: TCP

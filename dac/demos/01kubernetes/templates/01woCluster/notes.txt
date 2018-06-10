@@ -1,0 +1,6 @@
+docker rm -f $(docker ps -a -q)
+
+docker run -d -p 8080:8080 jenkinsci/jenkins:lts-alpine
+
+docker rm -f $(docker ps -a -q)
+
